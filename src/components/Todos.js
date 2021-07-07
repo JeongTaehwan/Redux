@@ -24,12 +24,12 @@ function Todolist({ todos, onToggle }) { //todos는 여러개의 todo가 들어�
 }
 
 function Todos({ todos, onCreate, onToggle }) {
-    const [text, setText] = useState('');
+    const [text, setText] = useState(''); // 
     const onChange = e => setText(e.target.value);
     const onSubmit = e => {
         e.preventDefault(); // 새로고침 방지
         onCreate(text);
-        setText = '';
+        setText('');
     };
 
     return (
