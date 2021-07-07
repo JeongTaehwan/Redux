@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function TodoItem({ todo, onToggle }) { //
+const TodoItem = React.memo(function TodoItem({ todo, onToggle }) { //
     return (
         <li
             style={{
@@ -11,9 +11,9 @@ function TodoItem({ todo, onToggle }) { //
             {todo.text}
         </li>
     );
-}
+});
 
-function Todolist({ todos, onToggle }) { //todos는 여러개의 todo가 들어간 배열
+const Todolist = React.memo(function Todolist({ todos, onToggle }) { //todos는 여러개의 todo가 들어간 배열
     return (
         <ul>
             {
@@ -21,7 +21,7 @@ function Todolist({ todos, onToggle }) { //todos는 여러개의 todo가 들어�
                 ))}
         </ul>
     );
-}
+});
 
 function Todos({ todos, onCreate, onToggle }) {
     const [text, setText] = useState(''); // 
@@ -46,4 +46,4 @@ function Todos({ todos, onCreate, onToggle }) {
     );
 }
 
-export default Todos;
+export default React.memo(Todos);
